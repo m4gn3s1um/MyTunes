@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytunes.controller.HelloController">
+   <left>
+      <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="150.0" spacing="8.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+               </image>
+            </ImageView>
+            <Pane prefHeight="15.0" />
+            <ListView fx:id="playlist" prefHeight="385.0" prefWidth="150.0" />
+            <HBox alignment="CENTER" prefWidth="200.0" spacing="8.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#opretPLKnap" text="Opret playlist" />
+                  <Button mnemonicParsing="false" onAction="#fjernPLKnap" text="Fjern" />
+               </children>
+               <padding>
+                  <Insets bottom="8.0" />
+               </padding>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="8.0" right="8.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="600.0" spacing="64.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="8.0">
+               <children>
+                  <ImageView fx:id="songImage" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="sangTitel" text="Sang titel">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="kunsterNavn" text="Kunstner navn" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="57.0" prefWidth="265.0" spacing="8.0">
+               <children>
+                  <HBox alignment="CENTER" prefWidth="200.0" spacing="8.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#previousKnap" text="Replay" />
+                        <Button fx:id="playKnap" mnemonicParsing="false" onAction="#playKnap"  text="Play" />
+                        <Button mnemonicParsing="false" onAction="#skipKnap" text="Skip" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="2.0">
+                     <children>
+                        <Label fx:id="timePlayed" text="0.00" />
+                        <ProgressBar prefHeight="5.0" prefWidth="200.0" progress="0.0" />
+                        <Label fx:id="totalTime" text="0.00" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="8.0">
+               <children>
+                  <Button fx:id="sound" mnemonicParsing="false" onAction="#soundKnap" text="Button" />
+                  <Slider />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="8.0" top="8.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <right>
+      <VBox alignment="BOTTOM_CENTER" prefHeight="543.0" prefWidth="150.0" spacing="8.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefWidth="200.0" spacing="8.0">
+               <children>
+                  <TextField fx:id="søgFelt" promptText="Søg.." />
+                  <Button mnemonicParsing="false" onAction="#søgKnap" text="Button" />
+               </children>
+            </HBox>
+            <ListView fx:id="songlist" prefHeight="388.0" prefWidth="150.0" />
+            <HBox alignment="CENTER" prefWidth="200.0" spacing="8.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#tilføjSangKnap" text="Tilføj sang" />
+                  <Button mnemonicParsing="false" onAction="#sletSangKnap" text="Slet sang" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="8.0" />
+               </padding>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="8.0" right="8.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <center>
+      <VBox alignment="BOTTOM_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="8.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="playlistNavn" text="PLAYLIST NAVN">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <HBox prefWidth="200.0" spacing="4.0">
+               <children>
+                  <Label fx:id="antalSange" text="0" />
+                  <Label text="Sange" />
+               </children>
+            </HBox>
+            <ListView fx:id="PLTracklist" prefHeight="430.0" prefWidth="600.0" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
